@@ -13,12 +13,11 @@ router.get('/', (req, res) => {
 
 router.get('/new', (req, res) => res.render('cars/new'));
 
-/*router.post('/addcar', (req, res) => {
-    
-    req.body._id = db.Car.length;
+router.post('/addcar', (req, res)=> {
+    req.body._id = db.Cars.length;
     db.Cars.push(req.body);
     res.redirect('/cars');
-});*/
+});
 
 
 
