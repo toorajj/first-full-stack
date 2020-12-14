@@ -18,10 +18,10 @@ router.get("/", function (req, res) {
     });
 });
 
-//New car route
-
+//New Get
 router.get("/new", (req, res) => res.render("cars/new"));
 
+//create -Post
 router.post("/", function (req, res) {
     db.Car.create(req.body, function(error, createdCar) {
         if (error) {
@@ -33,6 +33,8 @@ router.post("/", function (req, res) {
         }
     });
 });
+
+//Show - Get
 router.get("/:id", function (req, res) {
 	const id = req.params.id;
 	
@@ -50,6 +52,21 @@ router.get("/:id", function (req, res) {
 		});
 	
 });
+
+//Delete - Delete
+router.delete("/:id", function (req, res) {
+    const id = req.params.id;
+    db.Car.findByIdAndDelete(id, function (error, deletedCar) {
+        if (error) {
+            console.log(error);
+            return res.send("Internal Server Error");
+        } else {
+            return res.redirect("/cars");
+        }
+    });
+});
+
+
 
 
 
