@@ -6,18 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <a herf ="/">Home</a>
-    <a href = "/cars"></a>
+    <a href = "/">Home</a></br>
+    <a href = "/cars"> Inventory</a>
     
-    <h1>Editing <%=car.name%></h1>
+    <h1>Editing <%= car.name %></h1>
 
-<br action="/cars/<%=car._id%>?_method=PUT" method="POST">
-    Make:<input type="text" make="make" value="<%= car.make %>"/></br>
-    Model:<input type="text" make="model" value="<%= car.model %>"/></br>
-    Year:<input type="text" make="year" value="<%= car.year %>"/></br>
+<form action="/cars/<%=car._id%>?_method=PUT" method="POST">
+    Make:<input type="text" name="make" value="<%= car.make %>"/></br>
+    Model:<input type="text" name="model" value="<%= car.model %>"/></br>
+    Year:<input type="number" name="year" value="<%= car.year %>"/></br>
 
 
-    <input type = "submit" value = "update <%= car.year%> - <%= car.make%> - <%= car.model%>"
+    <input type = "submit" value = "Update <%= car.make%> - <%= car.model%>"
 </form>
     
 </body>

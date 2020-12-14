@@ -88,11 +88,10 @@ router.put("/:id", function (req, res) {
     db.Car.findByIdAndUpdate(
         id, {
             $set: {
-                ...req.body
+                 ...req.body
             }
-        }, {
-            new: true
-        },
+        }, 
+        { new: true },
         function (error, updatedCar) {
             if (error) {
                 console.log(error);
