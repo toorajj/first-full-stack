@@ -1,5 +1,4 @@
-module.exports = [
-    {
+module.exports = [{
         _id: 0,
         make: 'Porsche',
         model: '911 Turbo',
@@ -22,5 +21,5 @@ module.exports = [
         make: 'BMW',
         model: '2002 Turbo',
         year: '1974'
-    }   
+    }
 ];

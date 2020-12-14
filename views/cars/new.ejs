@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<nav>
+    <a href="/">Home</a>
+    <a href="/cars">Cars</a>
+    <a href="/cars/new">Add Car</a>
+</nav>
+<body>
+    <form method="POST" action="/cars/addcar">
+
+        <label for="color">Color:</label>
+        <input id="color" type="text" name="color" placeholder="add color">
+        <br />
+        <label for="year">Year:</label>
+        <input id="year" type="text" name="year" placeholder="add year">
+        <br />
+        <label for="model">Model:</label>
+        <input id="model" type="text" name="model" placeholder="add model">
+        <br />
+        <input type="submit" value="add car" />
+    </form>
+
+</body>
+
+</html>

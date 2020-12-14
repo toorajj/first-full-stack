@@ -2,6 +2,10 @@
 const express = require("express");
 const methodOverRide = require('method-override');
 
+//Internal Modules
+const db = require('./models');
+const controllers = require ('./controllers');
+
 //Intance Module
 const app = express();
 
@@ -12,18 +16,17 @@ const PORT = 3001;
 app.set('view engine', 'ejs');
 
 //Middleware
-app.use(express.urlencoded({
-    extended: true
-}));
+app.use(express.urlencoded({ extended: true}));
 app.use(methodOverRide('_method'));
 
-const db = require('./models');
 
-//Routes
-//Home
+
+// Controllers
+app.use('/cars', (controllers.cars));
+
+//Home Route
 app.get('/', (req, res) => res.render('home'));
-// Cars route
-app.get('/cars', (req, res) => res.send(db.Cars));
+
 
 // logger
 app.use(function (request, response, next) {
