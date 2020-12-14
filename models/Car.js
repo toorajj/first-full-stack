@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
 const carSchema = new mongoose.Schema({
+    _id: {
+        type: Number,
+        required: true,
+        minlength: 1
+
+    },
     make: {
         type: String,
         required: true,
