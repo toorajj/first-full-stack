@@ -82,6 +82,27 @@ router.get("/:id/edit", function (req, res) {
     });
 });
 
+//Update - Put / Patch
+router.put("/:id", function (req, res) {
+    const id = req.params.id;
+    db.Car.findByIdAndUpdate(
+        id, {
+            $set: {
+                ...req.body
+            }
+        }, {
+            new: true
+        },
+        function (error, updatedCar) {
+            if (error) {
+                console.log(error);
+                return res.send("Internal Server Error!");
+            } else {
+                return res.redirect(`/cars/${updatedCar._id}`);
+            }
+        }
+    )
+});
 
 
 
