@@ -20,10 +20,10 @@ router.get("/", function (req, res) {
 
 //New car route
 
-router.get('/new', (req, res) => res.render('cars/new'));
+router.get("/new", (req, res) => res.render("cars/new"));
 
-router.post('/addCar', (req, res) => {
-    db.Car.create(req.body, function (error, createdCar) {
+router.post("/", function (req, res) {
+    db.Car.create(req.body, function(error, createdCar) {
         if (error) {
             console.log(error);
             return res.send("Internal Server Error");
@@ -32,6 +32,23 @@ router.post('/addCar', (req, res) => {
             return res.redirect("/cars");
         }
     });
+});
+router.get("/:id", function (req, res) {
+	const id = req.params.id;
+	
+		db.Car.findById(id, function (error, foundCar) {
+
+			if(error){
+				console.log(error);
+				return res.send("Internal Server Error");
+			} else {
+				const context = {car: foundCar};
+
+				return res.render("cars/show", context);
+			}
+
+		});
+	
 });
 
 
