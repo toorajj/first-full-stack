@@ -23,7 +23,7 @@ router.get("/new", (req, res) => res.render("cars/new"));
 
 //create -Post
 router.post("/", function (req, res) {
-    db.Car.create(req.body, function(error, createdCar) {
+    db.Car.create(req.body, function (error, createdCar) {
         if (error) {
             console.log(error);
             return res.send("Internal Server Error");
@@ -36,21 +36,23 @@ router.post("/", function (req, res) {
 
 //Show - Get
 router.get("/:id", function (req, res) {
-	const id = req.params.id;
-	
-		db.Car.findById(id, function (error, foundCar) {
+    const id = req.params.id;
 
-			if(error){
-				console.log(error);
-				return res.send("Internal Server Error");
-			} else {
-				const context = {car: foundCar};
+    db.Car.findById(id, function (error, foundCar) {
 
-				return res.render("cars/show", context);
-			}
+        if (error) {
+            console.log(error);
+            return res.send("Internal Server Error");
+        } else {
+            const context = {
+                car: foundCar
+            };
 
-		});
-	
+            return res.render("cars/show", context);
+        }
+
+    });
+
 });
 
 //Delete - Delete
@@ -59,12 +61,27 @@ router.delete("/:id", function (req, res) {
     db.Car.findByIdAndDelete(id, function (error, deletedCar) {
         if (error) {
             console.log(error);
-            return res.send("Internal Server Error");
+            return res.send("Internal Server Error!");
         } else {
             return res.redirect("/cars");
         }
     });
 });
+
+//Edit - Get
+router.get("/:id/edit", function (req, res) {
+    const id = req.params.id;
+    db.Car.findById(id, function (error, foundCar) {
+        if (error) {
+            console.log(error);
+            return res.send("internal Server Error!");
+        } else {
+            const context = {car: foundCar}
+            return res.render("cars/edit", context);
+        }
+    });
+});
+
 
 
 

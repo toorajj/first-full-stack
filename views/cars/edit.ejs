@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a herf ="/">Home</a>
+    <a href = "/cars"></a>
+    
+    <h1>Editing <%=car.name%></h1>
+
+<br action="/cars/<%=car._id%>?_method=PUT" method="POST">
+    Make:<input type="text" make="make" value="<%= car.make %>"/></br>
+    Make:<input type="text" make="model" value="<%= car.model %>"/></br>
+    Make:<input type="text" make="year" value="<%= car.year %>"/></br>
+
+
+    <input type = "submit" value = "update <%= car.year%> - <%= car.make%> - <%= car.model%>"
+</form>
+    
+</body>
+</html>
